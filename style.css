@@ -1,8 +1,17 @@
 * {
+    /*
+     * this changes the way width and height
+     * are interpreted.
+     * i prefer border-box, but this is not the
+     * default value so i must set it for all elements
+    */
+
     box-sizing: border-box;
 }
 
 :root {
+    /* here im just defining variables that i want */
+    /* to use throughout my stylesheet */
     --c-bg-1: #121212;
     --c-bg-2: #888888;
 
@@ -21,19 +30,32 @@
 body {
     height: 100vh;
 
+    /* i don't want the entire body to scroll, just */
+    /* the main section */
     overflow: hidden;
 }
 
 main {
+    /* i want the main section to fill out the remaining space */
+    /* in the body. the only other element at this level taking space */
+    /* is the navbar, so i subtract its height from the full height to */
+    /* get the remaining space */
     height: calc(100% - var(--nav-height));
     padding: 0 3rem;
     padding-bottom: 3rem;
 
+    /* i don't want the main area to scroll horizontally */
     overflow-x: hidden;
+    /* i do want it to scroll vertically when needed */
     overflow-y: auto;
+
+    /* to make the scrollbar thinner */
+    scrollbar-width: thin;
 }
 
 main, .main-header-content {
+    /* i don't want the content of the page to always take up */
+    /* the entire space, so i limit it to a max width */
     max-width: 1280px;
     margin: 0 auto;
 }
@@ -50,27 +72,48 @@ select {
 
 a {
     color: var(--c-color-2);
+    /* for smooth hover transition */
     transition: color 0.1s;
 }
 
 a:hover {
     color: var(--c-color-1);
+    /* for smooth hover transition */
     transition: color 0.1s;
 }
 
 ul img {
     width: 80%;
+    /* so the image takes up its own line and is not displayed */
+    /* inline */
     display: block;
     margin: 2rem;
     border: 5px solid var(--c-border);
 
+    /* for smooth hover transition */
     transition: border 0.05s;
 }
 
 ul a:hover img {
     border: 5px solid var(--c-bg-2);
 
+    /* for smooth hover transition */
     transition: border 0.1s;
+}
+
+
+form {
+    margin-top: 3rem;
+    padding-left: 3rem;
+}
+
+form textarea {
+    width: min(400px, 80%);
+    /* by default textareas can be resized. i don't want that */
+    resize: none;
+    /* so the textarea has its own line */
+    display: block;
+    margin-bottom: 1rem;
 }
 
 .main-header {
@@ -81,6 +124,9 @@ ul a:hover img {
 }
 
 .main-header-content {
+    /* flexbox allows me to easily position the items in the */
+    /* navbar to be spaced apart horizontally and centered */
+    /* vertically */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -89,17 +135,8 @@ ul a:hover img {
     padding: 0 3rem;
 }
 
-.float-left {
-    float: left;
-    margin-right: .5rem;
-}
-
-.float-right {
-    float: right;
-    margin-left: .5rem;
-}
-
 .article-img {
+    /* i dont want images to always take up the entire space */
     max-width: 900px;
     max-height: 400px;
     border: 2px solid var(--c-border);

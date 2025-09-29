@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- spellcheck, autocapitalize, maxlength -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home - My Favorite Trips</title>
         <link rel="stylesheet" href="style.css">
         <script defer src="script.js"></script>
+        <script defer src="email.js"></script>
     </head>
     <body>
         <header class="main-header">
             <div class="main-header-content">
                 <h1>My Favorite Trips</h1>
                 <nav role="navigation">
+                    <!-- Here, the select and option elements are being used as  -->
+                    <!-- a form of site navigation. With a little bit of JavaScript, -->
+                    <!-- I can use these elements to select between pages easily with  -->
+                    <!-- nice default styling as well. -->
+                    <!-- The value attribute for each of the option elements holds the  -->
+                    <!-- path that I want to switch to when I select that option. The -->
+                    <!-- logic for this is handled in JavaScript in the onSelectChange -->
+                    <!-- function. This funtion is fired on the "onchange" event, which you -->
+                    <!-- can see me assigning in an attribute. -->
+                    <!-- Also, the reason I'm not just using anchor tags in the options -->
+                    <!-- is because the spec doesn't allow that, so you need to use  -->
+                    <!-- JavaScript in order to get this functionality. -->
                     <select id="nav-select" onchange="onSelectChange(this)">
                         <option value="index.html">
                             Home
@@ -30,43 +44,74 @@
             </div>
         </header>
         <main role="main">
-            <header>
-                <h2>Where I've Been</h2>
-                <p>
-                    I'm not the biggest traveller, but over the years I've been to a fair
-                    share of cool places. Although I've loved all the trips I've gone on, these
-                    three stood out the most:
-                </p>
-            </header>
-            <ul>
-                <li>
-                    <a href="seattle.html" title="Seattle">
-                        Seattle
-                        <img 
-                            src="https://www.spaceneedle.com/assets/_1440x810_crop_top-center_75_none/spaceneedle-desktop-posterimage.jpg"
-                            alt="Skyline view of Seattle" 
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="new-orleans.html" title="New Orleans">
-                        New Orleans
-                        <img 
-                            src="https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/destination/United-States/New-Orleans/112099_SCN_New-Orleans_iStock1047897858_ZA2A81/New-Orleans-Scenery.jpg?tr=w-780%2Ch-437%2Cfo-auto"
-                            alt="Skyline view of New Orleans" 
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="playa-del-carmen.html" title="Playa del Carmen">
-                        Playa del Carmen
-                        <img 
-                            src="https://cdn.sanity.io/images/atvntylo/production/4512065539db3fcdbc34cf03f59e90ff386d1c76-1080x720.webp?w=3840&q=65&fit=clip&auto=format"
-                            alt="Skyline view of New Orleans" 
-                        />
-                    </a>
-                </li>
-            </ul>
+            <article role="article">
+                <header>
+                    <h2>Where I've Been</h2>
+                    <p>
+                        I'm not the biggest traveller, but over the years I've been to a fair
+                        share of cool places. Although I've loved all the trips I've gone on, 
+                        I picked three places that I really enjoyed the most.
+                    </p>
+                </header>
+                <section>
+                    <ul>
+                        <li>
+                            <a href="seattle.html" title="Seattle">
+                                Seattle (April 2022)
+                                <img 
+                                    src="https://www.spaceneedle.com/assets/_1440x810_crop_top-center_75_none/spaceneedle-desktop-posterimage.jpg"
+                                    alt="Skyline view of Seattle" 
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="new-orleans.html" title="New Orleans">
+                                New Orleans (July 2022)
+                                <img 
+                                    src="https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/destination/United-States/New-Orleans/112099_SCN_New-Orleans_iStock1047897858_ZA2A81/New-Orleans-Scenery.jpg?tr=w-780%2Ch-437%2Cfo-auto"
+                                    alt="Skyline view of New Orleans" 
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="playa-del-carmen.html" title="Playa del Carmen">
+                                Playa del Carmen (August 2024)
+                                <img 
+                                    src="https://cdn.sanity.io/images/atvntylo/production/4512065539db3fcdbc34cf03f59e90ff386d1c76-1080x720.webp?w=3840&q=65&fit=clip&auto=format"
+                                    alt="Skyline view of New Orleans" 
+                                />
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <form id="email-form">
+                        <h2>Email me your favorite trips!</h3>
+                        <!-- Here, the textarea is being used as a way to construct  -->
+                        <!-- the body of an email message. -->
+                        <!-- I set the name attribute to "message" so I can access it in  -->
+                        <!-- JavaScript, and my three assigned attributes for the project were -->
+                        <!-- spellcheck, autocapitalize, and maxlength. -->
+                        <!-- Spellcheck is self-explanatory, since I set it to true the browser  -->
+                        <!-- now knows to add those squiggly lines when a user misspells something. -->
+                        <!-- Maxlength is also self-explanatory, it just restricts the user from typing more -->
+                        <!-- than 750 characters in the textarea. -->
+                        <!-- Autocapitalize is meant to automatically apply capitalization  -->
+                        <!-- based on the setting that it was given. Since I set it to "on," -->
+                        <!-- it should autocapitalize the first letter of each sentence.  -->
+                        <!-- However, this attribute doesn't seem to be fully implemented  -->
+                        <!-- everywhere, so this might not work. -->
+                        <textarea
+                            name="message"
+                            spellcheck="true"
+                            autocapitalize="sentences"
+                            maxlength="750"
+                            placeholder="Message"
+                        ></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                </section>
+            </article>
         </main>
     </body>
 </html>
