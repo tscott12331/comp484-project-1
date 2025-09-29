@@ -3,18 +3,71 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HTML 5 Boilerplate</title>
+        <title>Home - My Favorite Trips</title>
         <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
     </head>
     <body>
-        <select>
-            <option>
-                <a href="./page2.html">page 2</a>
-            </option>
-            <option>
-                <a href="./page3.html">page 2</a>
-            </option>
-        </select>
+        <header class="main-header">
+            <div class="main-header-content">
+                <h1>My Favorite Trips</h1>
+                <nav role="navigation">
+                    <select id="nav-select" onchange="onSelectChange(this)">
+                        <option value="index.html">
+                            Home
+                        </option>
+                        <option value="seattle.html">
+                            Seattle
+                        </option>
+                        <option value="new-orleans.html">
+                            New Orleans
+                        </option>
+                        <option value="playa-del-carmen.html">
+                            Playa del Carmen
+                        </option>
+                    </select>
+                </nav>
+            </div>
+        </header>
+        <main role="main">
+            <header>
+                <h2>Where I've Been</h2>
+                <p>
+                    I'm not the biggest traveller, but over the years I've been to a fair
+                    share of cool places. Although I've loved all the trips I've gone on, these
+                    three stood out the most:
+                </p>
+            </header>
+            <ul>
+                <li>
+                    <a href="seattle.html" title="Seattle">
+                        Seattle
+                        <img 
+                            src="https://www.spaceneedle.com/assets/_1440x810_crop_top-center_75_none/spaceneedle-desktop-posterimage.jpg"
+                            alt="Skyline view of Seattle" 
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="new-orleans.html" title="New Orleans">
+                        New Orleans
+                        <img 
+                            src="https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/destination/United-States/New-Orleans/112099_SCN_New-Orleans_iStock1047897858_ZA2A81/New-Orleans-Scenery.jpg?tr=w-780%2Ch-437%2Cfo-auto"
+                            alt="Skyline view of New Orleans" 
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="playa-del-carmen.html" title="Playa del Carmen">
+                        Playa del Carmen
+                        <img 
+                            src="https://cdn.sanity.io/images/atvntylo/production/4512065539db3fcdbc34cf03f59e90ff386d1c76-1080x720.webp?w=3840&q=65&fit=clip&auto=format"
+                            alt="Skyline view of New Orleans" 
+                        />
+                    </a>
+                </li>
+            </ul>
+        </main>
     </body>
 </html>
 
