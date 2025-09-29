@@ -12,6 +12,18 @@
             <div class="main-header-content">
                 <h1>Seattle</h1>
                 <nav role="navigation">
+                    <!-- Here, the select and option elements are being used as  -->
+                    <!-- a form of site navigation. With a little bit of JavaScript, -->
+                    <!-- I can use these elements to select between pages easily with  -->
+                    <!-- nice default styling as well. -->
+                    <!-- The value attribute for each of the option elements holds the  -->
+                    <!-- path that I want to switch to when I select that option. The -->
+                    <!-- logic for this is handled in JavaScript in the onSelectChange -->
+                    <!-- function. This funtion is fired on the "onchange" event, which you -->
+                    <!-- can see me assigning in an attribute. -->
+                    <!-- Also, the reason I'm not just using anchor tags in the options -->
+                    <!-- is because the spec doesn't allow that, so you need to use  -->
+                    <!-- JavaScript in order to get this functionality. -->
                     <select id="nav-select" onchange="onSelectChange(this)">
                         <option value="index.html">
                             Home
